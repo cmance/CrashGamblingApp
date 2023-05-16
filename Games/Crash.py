@@ -13,15 +13,15 @@ def divisible(hash, mod):
         val = ((val << 16) + int(hash[i:i+4], 16)) % mod
     return val == 0
 
-def crashPointFromHash(game_hash):
+def crashPointFromHash(game_hash): # 3% instant loss, 52% user lose 48% house win 
     hm = hmac.new(str.encode(game_hash), b'', hashlib.sha256)
     hm.update(salt.encode("utf-8"))
     h = hm.hexdigest()
-    if (int(h, 16) % 33 == 0):
+    if (int(h, 16) % 33 == 0): #divisible by 33, then return 1x multiplier, user loss
         return 1
     h = int(h[:13], 16)
     e = 2**52
-    return (((100 * e - h) / (e-h)) // 1) / 100.0
+    return (((100 * e - h) / (e-h)) // 1) / 100.0 #algo 
 
 serverSeed = generateHash(f'{secrets.randbelow(1000000)}') #possible security issue with the rand int, if implemented with real money, might want to use a more secure random integer gen.
 salt = ""
