@@ -6,10 +6,10 @@ CrashGamblingApp is a Python-based gambling application featuring four popular g
 
 1. [Features](#features)
 2. [Games Included](#games-included)
-   - [Crash](#crash)
-   - [Roulette](#roulette)
-   - [Coin Flip](#coin-flip)
-   - [Dice](#dice)
+   - [Crash](#Crash)
+   - [HiLo](#HiLo)
+   - [Mines](#Mines)
+   - [Plinko](#Plinko)
 
 ## Features
 
